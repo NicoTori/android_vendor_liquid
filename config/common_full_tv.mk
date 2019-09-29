@@ -1,14 +1,14 @@
 # Exclude AudioFX
 TARGET_EXCLUDES_AUDIOFX := true
 
-# Inherit full common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full.mk)
+# Inherit full common liquid stuff
+$(call inherit-product, vendor/liquid/config/common_full.mk)
 
-# Inherit Lineage atv device tree
-$(call inherit-product, device/lineage/atv/lineage_atv.mk)
+# Inherit liquid atv device tree
+$(call inherit-product, device/liquid/atv/liquid_atv.mk)
 
 PRODUCT_PACKAGES += \
     AppDrawer \
-    LineageCustomizer
+    liquidCustomizer
 
-DEVICE_PACKAGE_OVERLAYS += vendor/lineage/overlay/tv
+DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/tv

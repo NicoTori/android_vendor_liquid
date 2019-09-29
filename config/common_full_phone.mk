@@ -1,11 +1,11 @@
-# Inherit full common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full.mk)
+# Inherit full common Liquid stuff
+$(call inherit-product, vendor/liquid/config/common_full.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \
     LatinIME
 
-# Include Lineage LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/dictionaries
+# Include liquid LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/liquid/overlay/dictionaries
 
-$(call inherit-product, vendor/lineage/config/telephony.mk)
+$(call inherit-product, vendor/liquid/config/telephony.mk)

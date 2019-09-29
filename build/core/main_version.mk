@@ -1,19 +1,13 @@
-# LineageOS System Version
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.modversion=$(LINEAGE_VERSION) \
-    ro.lineagelegal.url=https://lineageos.org/legal
+PRODUCT_VERSION = 10.1
+ifneq ($(LIQUID_BUILDTYPE),)
+LIQUID_VERSION := -v$(PRODUCT_VERSION)-$(shell date +%Y%m%d)-$(LIQUID_BUILD)-$(LIQUID_BUILDTYPE)
+else
+LIQUID_VERSION := -v$(PRODUCT_VERSION)-$(shell date +%Y%m%d)-$(LIQUID_BUILD)-Unofficial
+endif
 
-# LineageOS Platform Display Version
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION)
+# Liquid System Version
+    ro.liquid.version=$(LIQUID_VERSION) \
+    ro.liquid.releasetype=$(LIQUID_BUILDTYPE) \
+    ro.liquid.build.version=$(PRODUCT_VERSION) \
+    ro.modversion=$(LIQUID_VERSION) \
 
-# LineageOS Platform SDK Version
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.build.version.plat.sdk=$(LINEAGE_PLATFORM_SDK_VERSION)
-
-# LineageOS Platform Internal Version
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.build.version.plat.rev=$(LINEAGE_PLATFORM_REV)
