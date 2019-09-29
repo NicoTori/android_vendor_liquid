@@ -26,8 +26,9 @@ RESET := \e[0m
 
 LIQUID_TARGET_PACKAGE := $(PRODUCT_OUT)/liquid$(LIQUID_VERSION).zip
 
-.PHONY: bacon
-bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
+.PHONY: otapackage liquid bacon
+otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
+liquid: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LIQUID_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(LIQUID_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LIQUID_TARGET_PACKAGE).md5sum
 	@echo -e "$(RESET)$(RED)_____________________________________"
@@ -49,3 +50,5 @@ bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	@echo -e "___________$(BOLD)$(GREEN)00$(RESET)$(RED)_____$(BOLD)$(GREEN)0$(RESET)$(RED)______$(BOLD)$(GREEN)00$(RESET)$(RED)__________"
 	@echo -e "_____________________________________$(DEFAULT)"
 	@echo "Package Complete: $(LIQUID_TARGET_PACKAGE)" >&2
+
+bacon: liquid
