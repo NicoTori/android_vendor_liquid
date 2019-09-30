@@ -118,9 +118,9 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
-# Bootanimation
-PRODUCT_PACKAGES += \
-    bootanimation.zip
+# Include LiquidRemix boot animation
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # AOSP packages
 PRODUCT_PACKAGES += \
